@@ -1,4 +1,4 @@
-from modules.scanner import scan_port
+from modules.scanner import scan
 from modules.network import get_local_ip
 
 def exibir_menu():
@@ -18,10 +18,12 @@ def main():
         if opcao == "1":
             ip = get_local_ip()
 
-            print(f"\nIP detectado automaticamente: {ip}")
+            resultados = scan(ip)
+            with open("resultado_scan.txt", "w") as f:
+                for r in resultados:
+                 f.write(r + "\n")
 
-            for port in range(1, 101):
-                scan_port(ip, port)
+                 print("\nResultado salvo em resultado_scan.txt")
 
         elif opcao == "2":
             print("Análise de Logs em desenvolvimento...")

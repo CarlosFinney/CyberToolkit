@@ -1,3 +1,6 @@
+from modules.scanner import scan_port
+from modules.network import get_local_ip
+
 def exibir_menu():
     print("\n===== CyberToolkit =====")
     print("1 - Scanner de Portas")
@@ -10,11 +13,15 @@ def exibir_menu():
 def main():
     while True:
         exibir_menu()
-
         opcao = input("\nEscolha uma opção: ")
 
         if opcao == "1":
-            print("Scanner de Portas em desenvolvimento...")
+            ip = get_local_ip()
+
+            print(f"\nIP detectado automaticamente: {ip}")
+
+            for port in range(1, 101):
+                scan_port(ip, port)
 
         elif opcao == "2":
             print("Análise de Logs em desenvolvimento...")

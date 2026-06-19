@@ -1,0 +1,15 @@
+Jun 18 01:02:11 server sshd[1023]: Failed password for root from 203.0.113.45 port 51322 ssh2
+Jun 18 01:02:14 server sshd[1023]: Failed password for root from 203.0.113.45 port 51324 ssh2
+Jun 18 01:02:17 server sshd[1023]: Failed password for root from 203.0.113.45 port 51326 ssh2
+Jun 18 01:02:20 server sshd[1023]: Failed password for root from 203.0.113.45 port 51328 ssh2
+Jun 18 01:02:23 server sshd[1023]: Failed password for admin from 203.0.113.45 port 51330 ssh2
+Jun 18 02:15:03 server sshd[1045]: Failed password for carlos from 198.51.100.22 port 41210 ssh2
+Jun 18 02:15:30 server sshd[1045]: Accepted password for carlos from 198.51.100.22 port 41210 ssh2
+Jun 18 03:40:01 server sshd[1078]: Failed password for guest from 198.51.100.77 port 33010 ssh2
+Jun 18 03:40:05 server sshd[1078]: Failed password for guest from 198.51.100.77 port 33012 ssh2
+Jun 18 03:40:09 server sshd[1078]: Failed password for test from 198.51.100.77 port 33014 ssh2
+Jun 18 03:40:13 server sshd[1078]: Failed password for test from 198.51.100.77 port 33016 ssh2
+Jun 18 03:40:17 server sshd[1078]: Failed password for test from 198.51.100.77 port 33018 ssh2
+Jun 18 03:40:21 server sshd[1078]: Failed password for test from 198.51.100.77 port 33020 ssh2
+Jun 18 04:55:00 server sshd[1099]: Failed password for ubuntu from 192.0.2.10 port 22011 ssh2
+Jun 18 05:10:12 server sshd[1102]: Accepted password for carlos from 192.168.1.50 port 50001 ssh2

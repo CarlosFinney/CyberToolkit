@@ -3,7 +3,7 @@ from modules.scanner import scan
 from modules.network import get_local_ip
 from modules.dns_lookup import consultar_dns
 from modules.ssl_check import verificar_ssl
-
+from modules.log_analyzer import analisar_log
 
 
 def exibir_menu():
@@ -50,7 +50,23 @@ def main():
             print("Resultado salvo em resultado_scan.txt")
 
         elif opcao == "2":
-            print("Análise de Logs em desenvolvimento...")
+            caminho = input("\nDigite o caminho do arquivo de log (ex: auth.log): ").strip()
+
+            resultado = analisar_log(caminho)
+
+            if resultado is None:
+                print(f"\nArquivo '{caminho}' não encontrado.")
+                continue
+
+            print(f"\nTotal de tentativas falhas: {resultado['total_falhas']}")
+            print(f"IPs únicos encontrados: {resultado['ips_unicos']}")
+
+            if resultado["suspeitos"]:
+                print("\nIPs suspeitos (3+ tentativas falhas):")
+                for ip, qtd in resultado["suspeitos"].items():
+                    print(f"  {ip} -> {qtd} tentativas")
+            else:
+                print("\nNenhum IP suspeito encontrado.")
 
         elif opcao == "3":
             host = input("\nDigite o domínio para consulta DNS (ex: google.com): ").strip()

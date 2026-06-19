@@ -1,4 +1,0 @@
-Alvo: scanme.nmap.org (45.33.32.156)
-
-Porta 22 ABERTA (SSH)
-Porta 80 ABERTA (HTTP)

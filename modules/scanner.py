@@ -13,6 +13,8 @@ SERVICOS = {
 
 resultados = []
 
+from threading import Lock
+lock = Lock()
 
 def scan_port(ip, port):
     try:
@@ -40,7 +42,8 @@ def scan(ip, inicio=1, fim=100, threads=50):
     print(f"\nEscaneando {ip}...\n")
 
     with ThreadPoolExecutor(max_workers=threads) as executor:
-        for port in range(inicio, fim + 1):
-            executor.submit(scan_port, ip, port)
+        list(executor.map(lambda p: scan_port(ip, p), range(inicio, fim + 1)))
+
+
 
     return resultados

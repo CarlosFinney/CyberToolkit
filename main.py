@@ -1,6 +1,10 @@
 import socket
 from modules.scanner import scan
 from modules.network import get_local_ip
+from modules.dns_lookup import consultar_dns
+from modules.ssl_check import verificar_ssl
+
+
 
 def exibir_menu():
     print("\n===== CyberToolkit =====")
@@ -49,10 +53,34 @@ def main():
             print("Análise de Logs em desenvolvimento...")
 
         elif opcao == "3":
-            print("Consulta DNS em desenvolvimento...")
+            host = input("\nDigite o domínio para consulta DNS (ex: google.com): ").strip()
+
+            if not host:
+                print("Você precisa digitar um domínio.")
+                continue
+
+            ip = consultar_dns(host)
+
+            if ip:
+                print(f"\n{host} -> {ip}")
+            else:
+                print(f"\nNão foi possível resolver o domínio '{host}'.")
 
         elif opcao == "4":
-            print("Verificação SSL em desenvolvimento...")
+            host = input("\nDigite o domínio para verificar o SSL (ex: google.com): ").strip()
+
+            if not host:
+                print("Você precisa digitar um domínio.")
+                continue
+
+            resultado = verificar_ssl(host)
+
+            if resultado["valido"]:
+                print(f"\nCertificado válido")
+                print(f"Emitido por: {resultado['emissor']}")
+                print(f"Expira em: {resultado['expira_em']} ({resultado['dias_restantes']} dias restantes)")
+            else:
+                print(f"\nNão foi possível verificar o SSL: {resultado['erro']}")
 
         elif opcao == "0":
             print("Encerrando o CyberToolkit...")
